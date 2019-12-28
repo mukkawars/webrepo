@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+
+<html>
+<script>
+    function search() {
+        window.location.href = 'select.php'
+    }
+</script>
+
+<head>
+
+    <title>Nav Maharashtra school</title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: red;
+        }
+        
+        li {
+            float: left;
+        }
+        
+        .a11 {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 16px;
+            text-decoration: none;
+        }
+    </style>
+
+
+    <script>
+        function validate() {
+
+            if (!chkname() || !chkmail()) {
+
+                alert("check entered information again");
+                return false;
+            }
+            return true;
+
+        }
+
+        
+
+        function chkname() {
+
+
+            var uname = document.getElementById("h_name").value;
+            if (uname.length < 3 || uname == "") {
+                alert("username is less than 3 words or is empty");
+                return false;
+            }
+            return true;
+        }
+
+        function chknum() {
+            var number = document.getElementById("h_num").value;
+            if (number.length > 10 || number == "") {
+
+                alert("number should not be more than 10 or empty");
+                return false;
+
+            }
+
+            return true;
+        }
+
+
+        function chkmail() {
+
+
+            var count = 0;
+            var format = /^ ([a-z A-Z 0-9]+)\@([a-z A-Z]\.([a-z A-Z]{2,3}))$/
+            var x = 1;
+            if (h_mail.match(format)) {
+
+                x = 0
+
+            }
+            document.write(x);
+            if (x != 0) {
+                alert("enter correct mail id")
+                return false
+            } else
+                return true;
+        }
+    </script>
+
+
+
+</head>
+
+<body>
+
+    <ul>
+
+        <li>
+            <a class="a11" href="home.html">
+                <img src="/img/dac.png" height="70px" />
+            </a>
+        </li>
+        <li><a class="a11" href="select.php">Show all</a></li>
+        <li><a class="a11" href="contact.html">Contact us</a></li>
+
+    </ul>
+
+
+    <h1>Nav Maharashtra school</h1>
+
+    <form  action="insert.php" method="POST">
+
+        <table>
+
+            <tr>
+                <th aria-colspan="2">
+                    Registration Form <br/>
+                </th>
+
+            </tr>
+            <tr>
+
+                <td>
+                    name:
+
+                </td>
+
+                <td>
+
+                    <input type="text" id="h_name" name="h_name" placeholder="Enter your name" required onblur="chkname()">
+
+                </td>
+            </tr>
+
+
+            <tr>
+
+                <td>
+
+                    Adress
+                </td>
+
+                <td>
+
+                    <textarea name="h_addr" id="h_addr" rows="5" cols="30" onblur="chkadd()" placeholder="Enter your Address"></textarea>
+
+                </td>
+            </tr>
+
+
+
+            <tr>
+
+                <td>
+                    email
+
+
+                </td>
+
+                <td>
+                    <input type="email" id="h_mail" name="h_mail" onblur="chkmail()" placeholder="Enter your email">
+
+
+                </td>
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    number
+
+                </td>
+
+                <td>
+                    <input type="number" id="h_num" name="h_num" onblur="chknum()" placeholder="Enter your mobile number">
+
+
+                </td>
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    date
+
+                </td>
+
+                <td>
+
+                    <input type="date" id="h_datename" name="h_datename" required />
+
+                </td>
+            </tr>
+
+            <tr>
+
+                <td>
+                    gender
+
+                </td>
+
+                <td>
+
+                    <input type="radio" name="rdogender" value="m" selected /> Male<br/>
+                    <input type="radio" name="rdogender" value="f" /> Female<br/>
+                    <input type="radio" name="rdogender" value="t" /> Transgender<br/>
+
+                </td>
+
+              
+
+
+        </table>
+
+        <tr>
+            <td aria-colspan="2">
+                <input type="submit" value="save" name="submit">
+            </td>
+
+        </tr>
+
+        <a href="select.php"></a>
+        <input type="submit" value=" show" onclick="search()"></button>
+    </form>
+
+
+</body>
+
+</html>
